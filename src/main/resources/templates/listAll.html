@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List reservations</title>
+</head>
+<body>
+
+<div th:switch="${reservations}">
+    <h2 th:case="null">No reservations yet !</h2>
+    <div th:case="*">
+        <h2>Reservation</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>RoomNumber</th>
+                <th>Dates</th>
+                <th>Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="reservation : ${reservations}">
+                <td th:text="${reservation.id}"></td>
+                <td th:text="${reservation.fullName}"></td>
+                <td th:text="${reservation.roomNumber}"></td>
+                <td th:text="${reservation.reservationDates}"></td>
+                <td><a th:href="@{/update/{id}(id=${reservation.id})}">Edit</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><table>
+    <tbody>
+    <tr>
+        <td><a href="/add-reservation">Add a reservation</a></td>
+        <td> ------- </td>
+        <td><a href="/index">Exit</a></td>
+    </tr>
+    </tbody>
+</table>
+    <div>
+            <span style="color:red" th:text="${errorMessage}"></span>
+            <span style="color:green" th:text="${okMessage}"></span>
+    </div>
+</div>
+
+</body>
+</html>

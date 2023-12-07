@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update reservation</title>
+</head>
+<body>
+<span style="font-size:50px">Update reservation</span>
+<form action="#" th:action="@{/update-reservation}" th:object="${reservationDTO}" method="post">
+    <table border="1" cellpadding="1" cellspacing="1" style="width:500px">
+        <tbody>
+        <tr>
+            <input type="hidden" th:field="*{id}">
+            <td><label for="fullName">Full name</label></td>
+            <td><input type="text" th:field="*{fullName}" id="fullName" placeholder="fullName" ></td>
+        </tr>
+        <tr>
+            <td><label for="roomNumber">Room number</label></td>
+            <td><input type="text" th:field="*{roomNumber}" id="roomNumber" placeholder="Room number"></td>
+        </tr>
+        <tr>
+            <td><label for="reservationDate1">Reservation date</label></td>
+            <td><input type="date" th:value="*{reservationDate1}" th:field="*{reservationDate1}" id="reservationDate1"/></td>
+        </tr>
+        <tr>
+            <td><label for="reservationDate2">Reservation date</label></td>
+            <td><input type="date" th:value="*{reservationDate2}" th:field="*{reservationDate2}" id="reservationDate2"/></td>
+        </tr>
+        <tr>
+            <td><label for="reservationDate3">Reservation date</label></td>
+            <td><input type="date" th:value="*{reservationDate3}" th:field="*{reservationDate3}" id="reservationDate3"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Save changes">
+</form>
+</table>
+</body>
+</html>

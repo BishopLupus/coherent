@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<span style="font-size:22px"><strong>Coherent Hotel</strong></span></p>
+
+<p>&nbsp;</p>
+<form action="#" th:action="@{/login}" th:object="${userDTO}" method="post">
+    <table border="1" cellpadding="1" cellspacing="1" style="width:500px">
+        <tbody>
+        <tr>
+            <td>Username</td>
+            <th><input type="text" th:field="*{username}" id="username" placeholder="Username"></th>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <th><input type="password" th:field="*{password}" id="password" placeholder="password"></th>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Login"> </td>
+            <td><span style="color:red" th:text="${errorMessage}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>
